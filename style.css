@@ -1,0 +1,77 @@
+body {
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding-top: 35px;
+}
+body { background: linear-gradient(-45deg, #ff4e50, #1e90ff, #ffdd00, #32cd32); background-size: 400% 400%; animation: bgmove 15s ease infinite; }
+@keyframes bgmove { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+
+h2{
+  justify-content: top-center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #c0392b;
+  
+}
+.calculator {
+  background: #918f8f;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0);
+}
+
+#display {
+  width: 100%;
+  height: 60px;
+  font-size: 2em;
+  text-align: right;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: #0f0;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  gap: 10px;
+}
+
+button {
+  height: 60px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #555;
+}
+
+button:active {
+  background: #666;
+}
+
+button.clear {
+  background: #e74c3c;
+}
+
+button.clear:hover {
+  background: #c0392b;
+}
+
+button.zero {
+  grid-column: span 2;
+}
+
