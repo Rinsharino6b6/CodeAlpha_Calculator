@@ -1,43 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- math.js for advanced calculations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <!-- Lucide icons for better visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-<center>
-  <h2>BASIC CALCULATOR</h2>
-</center>  
+<body data-theme="dark">
+    <div class="app-container">
+        <!-- Main Calculator -->
+        <main class="calculator">
+            <header class="header">
+                <h1>Smart AI Calculator</h1>
+                <div class="controls">
+                    <button id="voice-btn" class="voice-toggle" title="Voice Input">
+                        <i data-lucide="mic"></i>
+                    </button>
+                    <button id="theme-btn" class="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </header>
 
-  <div class="calculator">
-    <input type="text" id="display" disabled />
-    <div class="buttons">
-      <button data-key="C" class="clear">C</button>
-      <button data-key="/">/</button>
-      <button data-key="*">*</button>
-      <button data-key="Backspace">⌫</button>
+            <div class="display-container">
+                <div id="expression"></div>
+                <input type="text" id="result" placeholder="0" readonly>
+            </div>
 
-      <button data-key="7">7</button>
-      <button data-key="8">8</button>
-      <button data-key="9">9</button>
-      <button data-key="-">-</button>
+            <div class="button-grid">
+                <!-- Memory Functions -->
+                <button class="scientific" data-op="MC">MC</button>
+                <button class="scientific" data-op="MR">MR</button>
+                <button class="scientific" data-op="M+">M+</button>
+                <button class="scientific" data-op="M-">M-</button>
 
-      <button data-key="4">4</button>
-      <button data-key="5">5</button>
-      <button data-key="6">6</button>
-      <button data-key="+">+</button>
+                <!-- Scientific Row 1 -->
+                <button class="scientific" data-op="sin(">sin</button>
+                <button class="scientific" data-op="cos(">cos</button>
+                <button class="scientific" data-op="tan(">tan</button>
+                <button class="scientific" data-op="sqrt(">√</button>
 
-      <button data-key="1">1</button>
-      <button data-key="2">2</button>
-      <button data-key="3">3</button>
-      <button data-key="Enter">=</button>
+                <!-- Scientific Row 2 -->
+                <button class="scientific" data-op="log10(">log</button>
+                <button class="scientific" data-op="^">xʸ</button>
+                <button class="scientific" data-op="pi">π</button>
+                <button class="scientific" data-op="e">e</button>
 
-      <button data-key="0" class="zero">0</button>
-      <button data-key=".">.</button>
+                <!-- Standard Row 1 -->
+                <button class="clear" data-op="clear">AC</button>
+                <button class="clear" data-op="backspace">⌫</button>
+                <button class="operator" data-op="(">(</button>
+                <button class="operator" data-op=")">)</button>
+
+                <!-- Standard Row 2 -->
+                <button data-num="7">7</button>
+                <button data-num="8">8</button>
+                <button data-num="9">9</button>
+                <button class="operator" data-op="/">÷</button>
+
+                <!-- Standard Row 3 -->
+                <button data-num="4">4</button>
+                <button data-num="5">5</button>
+                <button data-num="6">6</button>
+                <button class="operator" data-op="*">×</button>
+
+                <!-- Standard Row 4 -->
+                <button data-num="1">1</button>
+                <button data-num="2">2</button>
+                <button data-num="3">3</button>
+                <button class="operator" data-op="-">−</button>
+
+                <!-- Standard Row 5 -->
+                <button data-num="0">0</button>
+                <button data-num=".">.</button>
+                <button class="equal" data-op="equal">=</button>
+                <button class="operator" data-op="+">+</button>
+            </div>
+        </main>
+
+        <!-- History Panel -->
+        <aside class="history-panel">
+            <header class="header">
+                <h2>History</h2>
+                <button id="clear-history" class="theme-toggle" title="Clear History">
+                    <i data-lucide="trash-2"></i>
+                </button>
+            </header>
+            <div class="history-list" id="history-list">
+                <!-- History items will be injected here -->
+            </div>
+        </aside>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
